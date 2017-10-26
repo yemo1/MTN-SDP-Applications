@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="file:///C:/SDP/OTP/NotifySubscriberConsentResult/NotifySubscriberConsentResult_service_1_0.wsdl" filename="notify_subscriber_consent_service.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="file:///C:/SDP/OTP/NotifySubscriberConsentResult/notifySubscriberConsentResult_types_1_0.xsd" filename="notifySubscriberConsentResult_types_1_0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="file:///C:/SDP/OTP/NotifySubscriberConsentResult/notifySubscriberConsentResult_interface_1_0.wsdl" filename="notify_subscriber_consent_interface.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

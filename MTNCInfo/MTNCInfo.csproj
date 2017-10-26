@@ -1,0 +1,570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{24E0BE62-EEE7-4ADA-9FF8-C9C196AC12FF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTNCInfo</RootNamespace>
+    <AssemblyName>MTNCInfo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Utility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AuthWeb.aspx" />
+    <Content Include="NotifyReceiptStatus.asmx" />
+    <Content Include="NotifyConsent.asmx" />
+    <Content Include="PostWeb1.aspx" />
+    <Content Include="StartSMS.aspx" />
+    <Content Include="SubWeb.aspx" />
+    <Content Include="SyncOrderData.Context.tt">
+      <DependentUpon>SyncOrderData.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SyncOrderData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SyncOrderData.edmx.diagram">
+      <DependentUpon>SyncOrderData.edmx</DependentUpon>
+    </Content>
+    <Content Include="SyncOrderData.tt">
+      <DependentUpon>SyncOrderData.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SyncOrderData.cs</LastGenOutput>
+    </Content>
+    <Content Include="XMLFile2.xml" />
+    <Content Include="XMLFile1.xml" />
+    <Content Include="XMLFileTest.xml" />
+    <Content Include="DataSync.asmx" />
+    <Content Include="NotifyDeliveryStatus.asmx" />
+    <Content Include="packages.config" />
+    <None Include="FaultCode.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\MTNCINFO.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="PostWeb.aspx" />
+    <Content Include="SendSMSPage.aspx" />
+    <None Include="Service References\DSync\configuration91.svcinfo" />
+    <None Include="Service References\DSync\configuration.svcinfo" />
+    <Content Include="Service References\DSync\MTNCInfo.DSync.syncOrderRelationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\DSync\MTNCInfo.DSync.SyncResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\DSync\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\DSync\DataSync1.wsdl" />
+    <Content Include="Web References\AUTHSVC\AuthorizationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\AUTHSVC\authorization_service.wsdl" />
+    <None Include="Web References\AUTHSVC\authorization_types_1_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\AUTHSVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\AUTHSVC\QueryAuthorizationListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\AUTHSVC\QueryAuthorizationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\AUTHSVC\UpdateAuthorizationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\AUTHSVC\v_interface.wsdl" />
+    <Content Include="Web References\CASVC\chargeAmountResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\CASVC\common_faults.wsdl" />
+    <None Include="Web References\CASVC\parlayx_common_types_2_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\CASVC\parlayx_payment_amount_charging_interface.wsdl" />
+    <None Include="Web References\CASVC\parlayx_payment_amount_charging_service.wsdl" />
+    <None Include="Web References\CASVC\parlayx_payment_types_2_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\CASVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web References\CASVC\refundAmountResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\NSDSVC\notifySmsDeliveryReceiptResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\NSDSVC\notifySmsReceptionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\NSDSVC\parlayx_common_types_2_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\NSDSVC\parlayx_sms_notification_interface.wsdl" />
+    <None Include="Web References\NSDSVC\parlayx_sms_notification_service.wsdl" />
+    <None Include="Web References\NSDSVC\parlayx_sms_types_2_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\NSDSVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\OTPSVC\notifySubscriberConsentResultResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\OTPSVC\notifySubscriberConsentResult_types_1_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\OTPSVC\notify_subscriber_consent_interface.wsdl" />
+    <None Include="Web References\OTPSVC\notify_subscriber_consent_service.wsdl" />
+    <Content Include="Web References\OTPSVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\SNSVC\common_faults.wsdl" />
+    <None Include="Web References\SNSVC\parlayx_common_types_2_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SNSVC\parlayx_sms_notification_manager_interface.wsdl" />
+    <None Include="Web References\SNSVC\parlayx_sms_notification_manager_service.wsdl" />
+    <None Include="Web References\SNSVC\parlayx_sms_types_2_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\SNSVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\SNSVC\startSmsNotificationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SNSVC\stopSmsNotificationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\SUBVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SUBVC\sag_subscribe_interface.wsdl" />
+    <None Include="Web References\SUBVC\sag_subscribe_service.wsdl" />
+    <None Include="Web References\SUBVC\sag_subscribe_types_1_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\SUBVC\subscribeProductResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SUBVC\subscribeServiceResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SUBVC\unSubscribeProductResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SUBVC\unSubscribeServiceResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\SVC\common_faults.wsdl" />
+    <Content Include="Web References\SVC\DeliveryInformation1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\SVC\parlayx_common_types_2_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SVC\parlayx_sms_send_interface.wsdl" />
+    <None Include="Web References\SVC\parlayx_sms_send_service.wsdl" />
+    <None Include="Web References\SVC\parlayx_sms_types_2_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web References\SVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\SVC\sendSmsLogoResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SVC\sendSmsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SVC\sendSmsRingtoneResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextPage.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppLog.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChargingTransaction.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSync.asmx.cs">
+      <DependentUpon>DataSync.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="mmSender.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NotifyReceiptStatus.asmx.cs">
+      <DependentUpon>NotifyReceiptStatus.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NotifyConsent.asmx.cs">
+      <DependentUpon>NotifyConsent.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="NotifyDeliveryStatus.asmx.cs">
+      <DependentUpon>NotifyDeliveryStatus.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="AuthWeb.aspx.cs">
+      <DependentUpon>AuthWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthWeb.aspx.designer.cs">
+      <DependentUpon>AuthWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostWeb1.aspx.cs">
+      <DependentUpon>PostWeb1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostWeb1.aspx.designer.cs">
+      <DependentUpon>PostWeb1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StartSMS.aspx.cs">
+      <DependentUpon>StartSMS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StartSMS.aspx.designer.cs">
+      <DependentUpon>StartSMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Subscriber.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SubWeb.aspx.cs">
+      <DependentUpon>SubWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubWeb.aspx.designer.cs">
+      <DependentUpon>SubWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostWeb.aspx.cs">
+      <DependentUpon>PostWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostWeb.aspx.designer.cs">
+      <DependentUpon>PostWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SendSMSPage.aspx.cs">
+      <DependentUpon>SendSMSPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendSMSPage.aspx.designer.cs">
+      <DependentUpon>SendSMSPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\DSync\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SyncOrderData.Context.cs">
+      <DependentUpon>SyncOrderData.Context.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SyncOrderData.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SyncOrderData.Designer.cs">
+      <DependentUpon>SyncOrderData.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="SyncOrderError.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SyncOrderProduct.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SyncOrderRelation.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SyncOrderRelationExtended.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SyncOrderRelationResponse.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextPage.aspx.cs">
+      <DependentUpon>TextPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TextPage.aspx.designer.cs">
+      <DependentUpon>TextPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AUTHSVC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CASVC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NSDSVC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\OTPSVC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SNSVC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SUBVC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SVC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\SDP\OTP\Authorization\authorization_service_1_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AUTHSVC\</RelPath>
+      <UpdateFromURL>C:\SDP\OTP\Authorization\authorization_service_1_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MTNCInfo_AUTHSVC_authorizationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\SDP\OTP\NotifySubscriberConsentResult\NotifySubscriberConsentResult_service_1_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\OTPSVC\</RelPath>
+      <UpdateFromURL>C:\SDP\OTP\NotifySubscriberConsentResult\NotifySubscriberConsentResult_service_1_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MTNCInfo_OTPSVC_SubscriberConsentService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\SDP\Payment\parlayx_payment_amount_charging_service_2_1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CASVC\</RelPath>
+      <UpdateFromURL>C:\SDP\Payment\parlayx_payment_amount_charging_service_2_1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MTNCInfo_CASVC_AmountChargingService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\SDP\SMS\parlayx_sms_notification_manager_service_2_3.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SNSVC\</RelPath>
+      <UpdateFromURL>C:\SDP\SMS\parlayx_sms_notification_manager_service_2_3.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MTNCInfo_SNSVC_SmsNotificationManagerService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\SDP\SMS\parlayx_sms_notification_service_2_2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NSDSVC\</RelPath>
+      <UpdateFromURL>C:\SDP\SMS\parlayx_sms_notification_service_2_2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MTNCInfo_NSDSVS_SmsNotificationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\SDP\Subscribe\Service Mgmt\sag_subscribe_service_1_0.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SUBVC\</RelPath>
+      <UpdateFromURL>C:\SDP\Subscribe\Service Mgmt\sag_subscribe_service_1_0.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MTNNWeb_SUBVC_SubscribeManageService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\SendSmsService\parlayx_sms_send_service.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SVC\</RelPath>
+      <UpdateFromURL>C:\SendSmsService\parlayx_sms_send_service.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MTNCInfo_SVC_SendSmsService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DSync\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="SyncOrderData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SyncOrderData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1078</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1078/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

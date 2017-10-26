@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:notify_subscriber_consent="http://www.csapi.org/wsdl/subscriberconsnet/data/v1_0/interface" xmlns:notify_subscriber_consent_local="http://www.csapi.org/schema/subscriberconsnet/data/v1_0/local" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:notify_subscriber_consent_xsd="http://www.csapi.org/schema/subscriberconsnet/data/v1_0" xmlns="http://schemas.xmlsoap.org/wsdl/" name="notify_subscriber_consent_interface" targetNamespace="http://www.csapi.org/wsdl/subscriberconsnet/data/v1_0/interface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/subscriberconsnet/data/v1_0/local">
+      <xsd:import schemaLocation="notifySubscriberConsentResult_types_1_0.xsd" namespace="http://www.csapi.org/schema/subscriberconsnet/data/v1_0" />
+      <xsd:element name="notifySubscriberConsentResult" type="notify_subscriber_consent_local:notifySubscriberConsentResult" />
+      <xsd:complexType name="notifySubscriberConsentResult">
+        <xsd:sequence>
+          <xsd:element name="subscriberID" type="notify_subscriber_consent_xsd:subscriberID" />
+          <xsd:element name="partnerID" type="xsd:string" />
+          <xsd:element minOccurs="0" name="serviceID" type="xsd:string" />
+          <xsd:element name="capabilityType" type="notify_subscriber_consent_xsd:CapabilityType" />
+          <xsd:element name="consentResult" type="xsd:int" />
+          <xsd:element minOccurs="0" name="accessToken" type="xsd:string" />
+          <xsd:element minOccurs="0" name="tokenType" type="notify_subscriber_consent_xsd:TokenType" />
+          <xsd:element minOccurs="0" name="tokenExpiryTime" type="xsd:string" />
+          <xsd:element minOccurs="0" name="extensionInfo" type="notify_subscriber_consent_xsd:NamedParameterList" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="notifySubscriberConsentResultResponse" type="notify_subscriber_consent_local:notifySubscriberConsentResultResponse" />
+      <xsd:complexType name="notifySubscriberConsentResultResponse">
+        <xsd:sequence>
+          <xsd:element name="result" type="xsd:int" />
+          <xsd:element name="resultDescription" type="xsd:string" />
+          <xsd:element minOccurs="0" name="extensionInfo" type="notify_subscriber_consent_xsd:NamedParameterList" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SubscriberConsent_notifySubscriberConsentResultRequest">
+    <wsdl:part name="parameters" element="notify_subscriber_consent_local:notifySubscriberConsentResult" />
+  </wsdl:message>
+  <wsdl:message name="SubscriberConsent_notifySubscriberConsentResultResponse">
+    <wsdl:part name="result" element="notify_subscriber_consent_local:notifySubscriberConsentResultResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SubscriberConsent">
+    <wsdl:operation name="notifySubscriberConsentResult">
+      <wsdl:input message="notify_subscriber_consent:SubscriberConsent_notifySubscriberConsentResultRequest" />
+      <wsdl:output message="notify_subscriber_consent:SubscriberConsent_notifySubscriberConsentResultResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

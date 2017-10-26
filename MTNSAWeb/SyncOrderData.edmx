@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SyncOrderDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Header" Type="varchar" MaxLength="50" />
+          <Property Name="Details" Type="varchar" MaxLength="2500" />
+          <Property Name="Timestamped" Type="datetime" />
+        </EntityType>
+        <EntityType Name="mmSender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Originator" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Destination" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TextMessage" Type="varchar" MaxLength="800" />
+          <Property Name="ServiceTo" Type="varchar" MaxLength="100" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="mStatus" Type="int" />
+          <Property Name="mState" Type="int" />
+          <Property Name="mIndex" Type="int" />
+          <Property Name="mOption" Type="int" />
+          <Property Name="mErrorDesc" Type="varchar" MaxLength="200" />
+          <Property Name="sLastStatus" Type="varchar" MaxLength="200" />
+          <Property Name="sErrorCode" Type="int" />
+          <Property Name="sErrorText" Type="varchar" MaxLength="800" />
+          <Property Name="sLastTimeStamp" Type="varchar" MaxLength="200" />
+          <Property Name="sErrorDesc" Type="varchar" MaxLength="800" />
+          <Property Name="SendDate" Type="datetime" />
+          <Property Name="Datestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SyncOrderError">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Cause" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="SyncOrderProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Service" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Keyword" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceID" Type="varchar" MaxLength="50" />
+          <Property Name="ProductID" Type="varchar" MaxLength="50" />
+          <Property Name="AccessCode" Type="varchar" MaxLength="50" />
+          <Property Name="Charge" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="DaysValid" Type="int" />
+          <Property Name="IsActive" Type="int" />
+          <Property Name="TestMode" Type="int" />
+          <Property Name="IsSub" Type="int" />
+        </EntityType>
+        <EntityType Name="SyncOrderRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Timestamped" Type="datetime" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+          <Property Name="UserType" Type="int" />
+          <Property Name="ServiceProviderID" Type="varchar" MaxLength="50" />
+          <Property Name="ProductID" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceID" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceList" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateType" Type="int" />
+          <Property Name="UpdateTime" Type="varchar" MaxLength="50" />
+          <Property Name="UpdateDescription" Type="varchar" MaxLength="50" />
+          <Property Name="EffectiveTime" Type="varchar" MaxLength="50" />
+          <Property Name="ExpiryTime" Type="varchar" MaxLength="50" />
+          <Property Name="Passed" Type="int" />
+        </EntityType>
+        <EntityType Name="SyncOrderRelationExtended">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SyncOrderRelationID" Type="int" />
+          <Property Name="AccessCode" Type="varchar" MaxLength="50" />
+          <Property Name="OperationCode" Type="varchar" MaxLength="50" />
+          <Property Name="ChargeMode" Type="int" />
+          <Property Name="MDSPSUBEXPMODE" Type="varchar" MaxLength="50" />
+          <Property Name="ObjectType" Type="varchar" MaxLength="50" />
+          <Property Name="StartTime" Type="varchar" MaxLength="50" />
+          <Property Name="IsFreePeriod" Type="bit" />
+          <Property Name="OperatorID" Type="varchar" MaxLength="50" />
+          <Property Name="PayType" Type="int" />
+          <Property Name="TransactionID" Type="varchar" MaxLength="50" />
+          <Property Name="OrderKey" Type="varchar" MaxLength="50" />
+          <Property Name="Keyword" Type="varchar" MaxLength="50" />
+          <Property Name="DurationOfGracePeriod" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceAvailability" Type="varchar" MaxLength="50" />
+          <Property Name="DurationOfSuspensionPeriod" Type="varchar" MaxLength="50" />
+          <Property Name="ServicePayType" Type="varchar" MaxLength="50" />
+          <Property Name="Fee" Type="int" />
+          <Property Name="CycleEndTime" Type="varchar" MaxLength="50" />
+          <Property Name="ChannelID" Type="int" />
+          <Property Name="TraceUniqueID" Type="varchar" MaxLength="50" />
+          <Property Name="RentSucess" Type="bit" />
+          <Property Name="Try" Type="bit" />
+          <Property Name="UpdateReason" Type="int" />
+          <Property Name="DedicatedAccountOperationType" Type="varchar" MaxLength="50" />
+          <Property Name="DAExpireDate" Type="varchar" MaxLength="50" />
+          <Property Name="DAUnit" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SyncOrderRelationResponse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Timestamped" Type="datetime" />
+          <Property Name="Result" Type="varchar" MaxLength="50" />
+          <Property Name="ResultDescription" Type="varchar" MaxLength="500" />
+          <Property Name="ResultInterpretation" Type="varchar" MaxLength="500" />
+          <Property Name="SyncOrderRelationExtendedID" Type="int" />
+        </EntityType>
+        <Association Name="FK_SyncOrderRelationExtended_SyncOrderRelation">
+          <End Role="SyncOrderRelation" Type="Self.SyncOrderRelation" Multiplicity="0..1" />
+          <End Role="SyncOrderRelationExtended" Type="Self.SyncOrderRelationExtended" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SyncOrderRelation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SyncOrderRelationExtended">
+              <PropertyRef Name="SyncOrderRelationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SyncOrderRelationResponse_SyncOrderRelationExtended">
+          <End Role="SyncOrderRelationExtended" Type="Self.SyncOrderRelationExtended" Multiplicity="0..1" />
+          <End Role="SyncOrderRelationResponse" Type="Self.SyncOrderRelationResponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SyncOrderRelationExtended">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SyncOrderRelationResponse">
+              <PropertyRef Name="SyncOrderRelationExtendedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="subsa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="message" Type="varchar" Mode="In" />
+          <Parameter Name="msisdn" Type="varchar" Mode="In" />
+          <Parameter Name="shortcode" Type="varchar" Mode="In" />
+          <Parameter Name="Network" Type="varchar" Mode="In" />
+          <Parameter Name="ProductID" Type="varchar" Mode="In" />
+          <Parameter Name="charge" Type="int" Mode="In" />
+          <Parameter Name="numdays" Type="int" Mode="In" />
+          <Parameter Name="updateType" Type="int" Mode="In" />
+          <Parameter Name="result" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="SyncOrderDataModelStoreContainer">
+          <EntitySet Name="AppLog" EntityType="Self.AppLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="mmSender" EntityType="Self.mmSender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SyncOrderError" EntityType="Self.SyncOrderError" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SyncOrderProduct" EntityType="Self.SyncOrderProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SyncOrderRelation" EntityType="Self.SyncOrderRelation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SyncOrderRelationExtended" EntityType="Self.SyncOrderRelationExtended" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SyncOrderRelationResponse" EntityType="Self.SyncOrderRelationResponse" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SyncOrderRelationExtended_SyncOrderRelation" Association="Self.FK_SyncOrderRelationExtended_SyncOrderRelation">
+            <End Role="SyncOrderRelation" EntitySet="SyncOrderRelation" />
+            <End Role="SyncOrderRelationExtended" EntitySet="SyncOrderRelationExtended" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SyncOrderRelationResponse_SyncOrderRelationExtended" Association="Self.FK_SyncOrderRelationResponse_SyncOrderRelationExtended">
+            <End Role="SyncOrderRelationExtended" EntitySet="SyncOrderRelationExtended" />
+            <End Role="SyncOrderRelationResponse" EntitySet="SyncOrderRelationResponse" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SyncOrderDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SyncOrderEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="SyncOrderRelations" EntityType="SyncOrderDataModel.SyncOrderRelation" />
+          <EntitySet Name="SyncOrderRelationExtendeds" EntityType="SyncOrderDataModel.SyncOrderRelationExtended" />
+          <EntitySet Name="SyncOrderRelationResponses" EntityType="SyncOrderDataModel.SyncOrderRelationResponse" />
+          <AssociationSet Name="FK_SyncOrderRelationExtended_SyncOrderRelation" Association="SyncOrderDataModel.FK_SyncOrderRelationExtended_SyncOrderRelation">
+            <End Role="SyncOrderRelation" EntitySet="SyncOrderRelations" />
+            <End Role="SyncOrderRelationExtended" EntitySet="SyncOrderRelationExtendeds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SyncOrderRelationResponse_SyncOrderRelationExtended" Association="SyncOrderDataModel.FK_SyncOrderRelationResponse_SyncOrderRelationExtended">
+            <End Role="SyncOrderRelationExtended" EntitySet="SyncOrderRelationExtendeds" />
+            <End Role="SyncOrderRelationResponse" EntitySet="SyncOrderRelationResponses" />
+          </AssociationSet>
+          <EntitySet Name="SyncOrderErrors" EntityType="SyncOrderDataModel.SyncOrderError" />
+          <EntitySet Name="SyncOrderProducts" EntityType="SyncOrderDataModel.SyncOrderProduct" />
+          <FunctionImport Name="subsa">
+            <Parameter Name="message" Mode="In" Type="String" />
+            <Parameter Name="msisdn" Mode="In" Type="String" />
+            <Parameter Name="shortcode" Mode="In" Type="String" />
+            <Parameter Name="Network" Mode="In" Type="String" />
+            <Parameter Name="ProductID" Mode="In" Type="String" />
+            <Parameter Name="charge" Mode="In" Type="Int32" />
+            <Parameter Name="numdays" Mode="In" Type="Int32" />
+            <Parameter Name="updateType" Mode="In" Type="Int32" />
+            <Parameter Name="result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="mmSenders" EntityType="SyncOrderDataModel.mmSender" />
+          <EntitySet Name="AppLogs" EntityType="SyncOrderDataModel.AppLog" />
+        </EntityContainer>
+        <EntityType Name="SyncOrderRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Timestamped" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserType" Type="Int32" />
+          <Property Name="ServiceProviderID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceList" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateType" Type="Int32" />
+          <Property Name="UpdateTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EffectiveTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExpiryTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SyncOrderRelationExtendeds" Relationship="SyncOrderDataModel.FK_SyncOrderRelationExtended_SyncOrderRelation" FromRole="SyncOrderRelation" ToRole="SyncOrderRelationExtended" />
+          <Property Name="Passed" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SyncOrderRelationExtended">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SyncOrderRelationID" Type="Int32" />
+          <Property Name="AccessCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OperationCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChargeMode" Type="Int32" />
+          <Property Name="MDSPSUBEXPMODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsFreePeriod" Type="Boolean" />
+          <Property Name="OperatorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PayType" Type="Int32" />
+          <Property Name="TransactionID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OrderKey" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DurationOfGracePeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceAvailability" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DurationOfSuspensionPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServicePayType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Fee" Type="Int32" />
+          <Property Name="CycleEndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChannelID" Type="Int32" />
+          <Property Name="TraceUniqueID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RentSucess" Type="Boolean" />
+          <Property Name="Try" Type="Boolean" />
+          <Property Name="UpdateReason" Type="Int32" />
+          <Property Name="DedicatedAccountOperationType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DAExpireDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DAUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SyncOrderRelation" Relationship="SyncOrderDataModel.FK_SyncOrderRelationExtended_SyncOrderRelation" FromRole="SyncOrderRelationExtended" ToRole="SyncOrderRelation" />
+          <NavigationProperty Name="SyncOrderRelationResponses" Relationship="SyncOrderDataModel.FK_SyncOrderRelationResponse_SyncOrderRelationExtended" FromRole="SyncOrderRelationExtended" ToRole="SyncOrderRelationResponse" />
+        </EntityType>
+        <EntityType Name="SyncOrderRelationResponse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Timestamped" Type="DateTime" Precision="3" />
+          <Property Name="Result" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResultDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ResultInterpretation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SyncOrderRelationExtendedID" Type="Int32" />
+          <NavigationProperty Name="SyncOrderRelationExtended" Relationship="SyncOrderDataModel.FK_SyncOrderRelationResponse_SyncOrderRelationExtended" FromRole="SyncOrderRelationResponse" ToRole="SyncOrderRelationExtended" />
+        </EntityType>
+        <Association Name="FK_SyncOrderRelationExtended_SyncOrderRelation">
+          <End Type="SyncOrderDataModel.SyncOrderRelation" Role="SyncOrderRelation" Multiplicity="0..1" />
+          <End Type="SyncOrderDataModel.SyncOrderRelationExtended" Role="SyncOrderRelationExtended" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SyncOrderRelation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SyncOrderRelationExtended">
+              <PropertyRef Name="SyncOrderRelationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SyncOrderRelationResponse_SyncOrderRelationExtended">
+          <End Type="SyncOrderDataModel.SyncOrderRelationExtended" Role="SyncOrderRelationExtended" Multiplicity="0..1" />
+          <End Type="SyncOrderDataModel.SyncOrderRelationResponse" Role="SyncOrderRelationResponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SyncOrderRelationExtended">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SyncOrderRelationResponse">
+              <PropertyRef Name="SyncOrderRelationExtendedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SyncOrderError">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Cause" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SyncOrderProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Service" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Charge" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="DaysValid" Type="Int32" />
+          <Property Name="IsActive" Type="Int32" />
+          <Property Name="IsSub" Type="Int32" />
+          <Property Name="AccessCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TestMode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="mmSender">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Originator" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Destination" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TextMessage" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceTo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="mStatus" Type="Int32" />
+          <Property Name="mState" Type="Int32" />
+          <Property Name="mIndex" Type="Int32" />
+          <Property Name="mOption" Type="Int32" />
+          <Property Name="mErrorDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="sLastStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="sErrorCode" Type="Int32" />
+          <Property Name="sErrorText" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="sLastTimeStamp" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="sErrorDesc" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="SendDate" Type="DateTime" Precision="3" />
+          <Property Name="Datestamp" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AppLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="Timestamped" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SyncOrderDataModelStoreContainer" CdmEntityContainer="SyncOrderEntities" >
+          <EntitySetMapping Name="SyncOrderRelations">
+            <EntityTypeMapping TypeName="SyncOrderDataModel.SyncOrderRelation">
+              <MappingFragment StoreEntitySet="SyncOrderRelation">
+                <ScalarProperty Name="Passed" ColumnName="Passed" />
+                <ScalarProperty Name="ExpiryTime" ColumnName="ExpiryTime" />
+                <ScalarProperty Name="EffectiveTime" ColumnName="EffectiveTime" />
+                <ScalarProperty Name="UpdateDescription" ColumnName="UpdateDescription" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateType" ColumnName="UpdateType" />
+                <ScalarProperty Name="ServiceList" ColumnName="ServiceList" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ServiceProviderID" ColumnName="ServiceProviderID" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Timestamped" ColumnName="Timestamped" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SyncOrderRelationExtendeds">
+            <EntityTypeMapping TypeName="SyncOrderDataModel.SyncOrderRelationExtended">
+              <MappingFragment StoreEntitySet="SyncOrderRelationExtended">
+                <ScalarProperty Name="DAUnit" ColumnName="DAUnit" />
+                <ScalarProperty Name="DAExpireDate" ColumnName="DAExpireDate" />
+                <ScalarProperty Name="DedicatedAccountOperationType" ColumnName="DedicatedAccountOperationType" />
+                <ScalarProperty Name="UpdateReason" ColumnName="UpdateReason" />
+                <ScalarProperty Name="Try" ColumnName="Try" />
+                <ScalarProperty Name="RentSucess" ColumnName="RentSucess" />
+                <ScalarProperty Name="TraceUniqueID" ColumnName="TraceUniqueID" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="CycleEndTime" ColumnName="CycleEndTime" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="ServicePayType" ColumnName="ServicePayType" />
+                <ScalarProperty Name="DurationOfSuspensionPeriod" ColumnName="DurationOfSuspensionPeriod" />
+                <ScalarProperty Name="ServiceAvailability" ColumnName="ServiceAvailability" />
+                <ScalarProperty Name="DurationOfGracePeriod" ColumnName="DurationOfGracePeriod" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="OrderKey" ColumnName="OrderKey" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="PayType" ColumnName="PayType" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="IsFreePeriod" ColumnName="IsFreePeriod" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+                <ScalarProperty Name="MDSPSUBEXPMODE" ColumnName="MDSPSUBEXPMODE" />
+                <ScalarProperty Name="ChargeMode" ColumnName="ChargeMode" />
+                <ScalarProperty Name="OperationCode" ColumnName="OperationCode" />
+                <ScalarProperty Name="AccessCode" ColumnName="AccessCode" />
+                <ScalarProperty Name="SyncOrderRelationID" ColumnName="SyncOrderRelationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SyncOrderRelationResponses">
+            <EntityTypeMapping TypeName="SyncOrderDataModel.SyncOrderRelationResponse">
+              <MappingFragment StoreEntitySet="SyncOrderRelationResponse">
+                <ScalarProperty Name="SyncOrderRelationExtendedID" ColumnName="SyncOrderRelationExtendedID" />
+                <ScalarProperty Name="ResultInterpretation" ColumnName="ResultInterpretation" />
+                <ScalarProperty Name="ResultDescription" ColumnName="ResultDescription" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Timestamped" ColumnName="Timestamped" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SyncOrderErrors">
+            <EntityTypeMapping TypeName="SyncOrderDataModel.SyncOrderError">
+              <MappingFragment StoreEntitySet="SyncOrderError">
+                <ScalarProperty Name="Cause" ColumnName="Cause" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SyncOrderProducts">
+            <EntityTypeMapping TypeName="SyncOrderDataModel.SyncOrderProduct">
+              <MappingFragment StoreEntitySet="SyncOrderProduct">
+                <ScalarProperty Name="TestMode" ColumnName="TestMode" />
+                <ScalarProperty Name="AccessCode" ColumnName="AccessCode" />
+                <ScalarProperty Name="IsSub" ColumnName="IsSub" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DaysValid" ColumnName="DaysValid" />
+                <ScalarProperty Name="Charge" ColumnName="Charge" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Service" ColumnName="Service" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="subsa" FunctionName="SyncOrderDataModel.Store.subsa" />
+          <EntitySetMapping Name="mmSenders">
+            <EntityTypeMapping TypeName="SyncOrderDataModel.mmSender">
+              <MappingFragment StoreEntitySet="mmSender">
+                <ScalarProperty Name="Datestamp" ColumnName="Datestamp" />
+                <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+                <ScalarProperty Name="sErrorDesc" ColumnName="sErrorDesc" />
+                <ScalarProperty Name="sLastTimeStamp" ColumnName="sLastTimeStamp" />
+                <ScalarProperty Name="sErrorText" ColumnName="sErrorText" />
+                <ScalarProperty Name="sErrorCode" ColumnName="sErrorCode" />
+                <ScalarProperty Name="sLastStatus" ColumnName="sLastStatus" />
+                <ScalarProperty Name="mErrorDesc" ColumnName="mErrorDesc" />
+                <ScalarProperty Name="mOption" ColumnName="mOption" />
+                <ScalarProperty Name="mIndex" ColumnName="mIndex" />
+                <ScalarProperty Name="mState" ColumnName="mState" />
+                <ScalarProperty Name="mStatus" ColumnName="mStatus" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="ServiceTo" ColumnName="ServiceTo" />
+                <ScalarProperty Name="TextMessage" ColumnName="TextMessage" />
+                <ScalarProperty Name="Destination" ColumnName="Destination" />
+                <ScalarProperty Name="Originator" ColumnName="Originator" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppLogs">
+            <EntityTypeMapping TypeName="SyncOrderDataModel.AppLog">
+              <MappingFragment StoreEntitySet="AppLog">
+                <ScalarProperty Name="Timestamped" ColumnName="Timestamped" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

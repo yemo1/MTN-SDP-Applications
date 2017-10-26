@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.csapi.org/wsdl/authorization/service/v1_0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:interface="http://www.csapi.org/wsdl/authorization/interface/v1_0" xmlns="http://schemas.xmlsoap.org/wsdl/" name="authorization_service" targetNamespace="http://www.csapi.org/wsdl/authorization/service/v1_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.csapi.org/wsdl/authorization/interface/v1_0" location="authorization_interface_1_0.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="authorizationBinding" type="interface:authorization">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="authorization">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="interface:RequestSOAPHeaderMessage" part="RequestSOAPHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAuthorization">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="interface:RequestSOAPHeaderMessage" part="RequestSOAPHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryAuthorization">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="interface:RequestSOAPHeaderMessage" part="RequestSOAPHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryAuthorizationList">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:header message="interface:RequestSOAPHeaderMessage" part="RequestSOAPHeader" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="authorizationService">
+    <wsdl:port name="authorization" binding="tns:authorizationBinding">
+      <soap:address location="http://localhost:8310/authorizationService/services/authorization" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

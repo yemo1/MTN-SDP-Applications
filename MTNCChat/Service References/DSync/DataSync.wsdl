@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.csapi.org/schema/parlayx/data/v1_0" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.csapi.org/schema/parlayx/data/v1_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.csapi.org/schema/parlayx/data/v1_0">
+      <s:element name="SyncOrderRelation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="tns:UserID" />
+            <s:element minOccurs="0" maxOccurs="1" name="spID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="productID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceList" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateType" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="updateTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="updateDesc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="effectiveTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="expiryTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="extensionInfo" type="tns:NamedParameterList" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NamedParameterList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:NamedParameter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NamedParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SyncOrderRelationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SyncOrderRelationResult" type="tns:SyncResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SyncResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="result" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="resultDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="extensionInfo" type="tns:NamedParameterList" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SyncOrderRelationSoapIn">
+    <wsdl:part name="parameters" element="tns:SyncOrderRelation" />
+  </wsdl:message>
+  <wsdl:message name="SyncOrderRelationSoapOut">
+    <wsdl:part name="parameters" element="tns:SyncOrderRelationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DataSyncSoap">
+    <wsdl:operation name="SyncOrderRelation">
+      <wsdl:input message="tns:SyncOrderRelationSoapIn" />
+      <wsdl:output message="tns:SyncOrderRelationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DataSyncSoap" type="tns:DataSyncSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SyncOrderRelation">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DataSyncSoap12" type="tns:DataSyncSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SyncOrderRelation">
+      <soap12:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataSync">
+    <wsdl:port name="DataSyncSoap" binding="tns:DataSyncSoap">
+      <soap:address location="http://localhost:1078/DataSync.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DataSyncSoap12" binding="tns:DataSyncSoap12">
+      <soap12:address location="http://localhost:1078/DataSync.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MTNCChat.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MTNCChat_SVC_SendSmsService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8310/SendSmsService/services/SendSms</Value>
+    </Setting>
+    <Setting Name="MTNCChat_SUBVC_SubscribeManageService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:9080/SubscribeManageService/services/SubscribeManage</Value>
+    </Setting>
+    <Setting Name="MTNCChat_AUTHSVC_authorizationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8310/authorizationService/services/authorization</Value>
+    </Setting>
+    <Setting Name="MTNCChat_OTPSVC_SubscriberConsentService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:9080/subscriberConsentService/services/subscriberConsent</Value>
+    </Setting>
+    <Setting Name="MTNCChat_CASVC_AmountChargingService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:9080/AmountChargingService/services/AmountCharging</Value>
+    </Setting>
+    <Setting Name="MTNCChat_SNSVC_SmsNotificationManagerService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:9080/SmsNotificationManagerService/services/SmsNotificationManager</Value>
+    </Setting>
+    <Setting Name="MTNCChat_NSDSVS_SmsNotificationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:9080/SmsNotificationService/services/SmsNotification</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

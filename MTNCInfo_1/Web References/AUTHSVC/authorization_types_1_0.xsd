@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:data_xsd="http://www.csapi.org/schema/authorization/data/v1_0" targetNamespace="http://www.csapi.org/schema/authorization/data/v1_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="NamedParameterList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="data_xsd:NamedParameter" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="NamedParameter">
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string" />
+      <xsd:element name="value" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Result">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="resultDescription" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UpdateAuthorization">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="productId" type="xsd:string" />
+      <xsd:element minOccurs="0" name="accessToken" type="xsd:string" />
+      <xsd:element name="authorizationtype" type="xsd:string" />
+      <xsd:element minOccurs="0" name="extensionInfo" type="data_xsd:NamedParameterList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BriefAuthorizationInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="accessTokenStatus" type="xsd:string" />
+      <xsd:element minOccurs="0" name="accessToken" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tokenValidity" type="xsd:string" />
+      <xsd:element minOccurs="0" name="totalAmount" type="xsd:int" />
+      <xsd:element minOccurs="0" name="authorizationtype" type="xsd:string" />
+      <xsd:element minOccurs="0" name="extensionInfo" type="data_xsd:NamedParameterList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DetailedAuthorizationInfo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="productName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="productId" type="xsd:string" />
+      <xsd:element name="transactionId" type="xsd:string" />
+      <xsd:element minOccurs="0" name="amount" type="xsd:int" />
+      <xsd:element minOccurs="0" name="currency" type="xsd:string" />
+      <xsd:element minOccurs="0" name="serviceInterval" type="xsd:string" />
+      <xsd:element minOccurs="0" name="serviceIntervalUnit" type="xsd:string" />
+      <xsd:element minOccurs="0" name="accessTokenStatus" type="xsd:string" />
+      <xsd:element minOccurs="0" name="accessToken" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tokenValidity" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tokenCategory" type="xsd:int" />
+      <xsd:element minOccurs="0" name="authorizationtype" type="xsd:string" />
+      <xsd:element minOccurs="0" name="extensionInfo" type="data_xsd:NamedParameterList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DetailedAuthorizationInfoList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="detailedAuthorizationInfo" type="data_xsd:DetailedAuthorizationInfo" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

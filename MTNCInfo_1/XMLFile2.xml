@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="http://www.csapi.org/schema/parlayx/subscribe/manage/v1_0/local">
+  <soapenv:Header>
+    <tns:RequestSOAPHeader xmlns:tns="http://www.huawei.com.cn/schema/common/v2_1">
+      <tns:spId>{0}</tns:spId>
+      <tns:spPassword>{1}</tns:spPassword>
+      <tns:timeStamp>{2}</tns:timeStamp>
+      <tns:oauth_token>{4}</tns:oauth_token>
+    </tns:RequestSOAPHeader>
+  </soapenv:Header>
+  <soapenv:Body>
+    <loc:subscribeProductRequest>
+      <loc:subscribeProductReq>
+        <userID>
+          <ID>{5}</ID>
+          <type>{6}</type>
+        </userID>
+        <subInfo>
+          <productID>{7}</productID>
+          <operCode>zh</operCode>
+          <isAutoExtend>0</isAutoExtend>
+          <channelID>2</channelID>
+        </subInfo>
+      </loc:subscribeProductReq>
+    </loc:subscribeProductRequest>
+  </soapenv:Body>
+</soapenv:Envelope>

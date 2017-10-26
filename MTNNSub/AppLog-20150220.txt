@@ -1,0 +1,2 @@
+2/20/2015 6:33:28 AM ==> System.NullReferenceException: Object reference not set to an instance of an object.
+   at MTNNWeb.PostWeb1.Page_Load(Object sender, EventArgs e) in c:\Users\Administrator\Documents\Visual Studio 2013\Projects\Funmobile\SDP\MTNNWeb\PostWeb1.aspx.cs:line 67

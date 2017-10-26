@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60D67210-0AEA-4FBF-A5E8-833C7A81E228}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MTNNSubSMS</RootNamespace>
+    <AssemblyName>MTNNSubSMS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Utility">
+      <HintPath>..\MTNNSendSMS\bin\Release\Utility.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppLog.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChargingTransaction.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Common.cs" />
+    <Compile Include="mmSender.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SendTask.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SendTask.Designer.cs">
+      <DependentUpon>SendTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subscriber.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyncOrderData.Context.cs">
+      <DependentUpon>SyncOrderData.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SyncOrderData.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SyncOrderData.Designer.cs">
+      <DependentUpon>SyncOrderData.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SyncOrderError.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyncOrderProduct.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyncOrderRelation.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyncOrderRelationExtended.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SyncOrderRelationResponse.cs">
+      <DependentUpon>SyncOrderData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SVC\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="SyncOrderData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SyncOrderData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="SyncOrderData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SyncOrderData.edmx</DependentUpon>
+      <LastGenOutput>SyncOrderData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SyncOrderData.edmx.diagram">
+      <DependentUpon>SyncOrderData.edmx</DependentUpon>
+    </Content>
+    <Content Include="SyncOrderData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SyncOrderData.edmx</DependentUpon>
+      <LastGenOutput>SyncOrderData.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\SVC\common_faults.wsdl" />
+    <None Include="Web References\SVC\DeliveryInformation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SVC\parlayx_common_types_2_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SVC\parlayx_sms_send_interface.wsdl" />
+    <None Include="Web References\SVC\parlayx_sms_send_service.wsdl" />
+    <None Include="Web References\SVC\parlayx_sms_types_2_2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\SVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SVC\sendSmsLogoResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SVC\sendSmsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\SVC\sendSmsRingtoneResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\Users\Administrator\Documents\Visual Studio 2013\Projects\Funmobile\SDP\MTNNSub\Web References\SVC\parlayx_sms_send_service.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SVC\</RelPath>
+      <UpdateFromURL>C:\Users\Administrator\Documents\Visual Studio 2013\Projects\Funmobile\SDP\MTNNSub\Web References\SVC\parlayx_sms_send_service.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MTNNSubSMS_SVC_SendSmsService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendTask.resx">
+      <DependentUpon>SendTask.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

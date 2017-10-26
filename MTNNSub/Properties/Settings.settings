@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MTNNSub.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MTNNSub_SVC_SendSmsService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://{0}:8310/SendSmsService/services/SendSms</Value>
+    </Setting>
+    <Setting Name="MTNNSub_SUBVC_SubscribeManageService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://{0}:8310/SubscribeManageService/services/SubscribeManage</Value>
+    </Setting>
+    <Setting Name="MTNNSub_AUTHSVC_authorizationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://{0}:8310/authorizationService/services/authorization</Value>
+    </Setting>
+    <Setting Name="MTNNSub_OTPSVC_SubscriberConsentService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://{0}:8310/subscriberConsentService/services/subscriberConsent</Value>
+    </Setting>
+    <Setting Name="MTNNSub_CASVC_AmountChargingService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://{0}:9080/AmountChargingService/services/AmountCharging</Value>
+    </Setting>
+    <Setting Name="MTNNSub_SNSVC_SmsNotificationManagerService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:9080/SmsNotificationManagerService/services/SmsNotificationManager</Value>
+    </Setting>
+    <Setting Name="MTNNSub_NSDSVS_SmsNotificationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:9080/SmsNotificationService/services/SmsNotification</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

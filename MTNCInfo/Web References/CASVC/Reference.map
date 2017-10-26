@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="file:///C:/SDP/Payment/parlayx_common_faults_2_0.wsdl" filename="common_faults.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="file:///C:/SDP/Payment/parlayx_payment_amount_charging_interface_2_1.wsdl" filename="parlayx_payment_amount_charging_interface.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="file:///C:/SDP/Payment/parlayx_payment_amount_charging_service_2_1.wsdl" filename="parlayx_payment_amount_charging_service.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="file:///C:/SDP/Payment/parlayx_common_types_2_1.xsd" filename="parlayx_common_types_2_1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="file:///C:/SDP/Payment/parlayx_payment_types_2_1.xsd" filename="parlayx_payment_types_2_1.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

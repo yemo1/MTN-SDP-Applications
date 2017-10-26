@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.csapi.org/wsdl/parlayx/payment/amount_charging/v2_1/service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:interface="http://www.csapi.org/wsdl/parlayx/payment/amount_charging/v2_1/interface" xmlns="http://schemas.xmlsoap.org/wsdl/" name="parlayx_payment_amount_charging_service" targetNamespace="http://www.csapi.org/wsdl/parlayx/payment/amount_charging/v2_1/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.csapi.org/wsdl/parlayx/payment/amount_charging/v2_1/interface" location="parlayx_payment_amount_charging_interface_2_1.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="AmountChargingBinding" type="interface:AmountCharging">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="chargeAmount">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="PolicyException">
+        <soap:fault use="literal" name="PolicyException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="refundAmount">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="PolicyException">
+        <soap:fault use="literal" name="PolicyException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AmountChargingService">
+    <wsdl:port name="AmountCharging" binding="tns:AmountChargingBinding">
+      <soap:address location="http://localhost:9080/AmountChargingService/services/AmountCharging" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

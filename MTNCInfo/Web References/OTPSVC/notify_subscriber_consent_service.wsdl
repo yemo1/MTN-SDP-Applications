@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.csapi.org/wsdl/subscriberconsnet/data/v1_0/service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:interface="http://www.csapi.org/wsdl/subscriberconsnet/data/v1_0/interface" xmlns="http://schemas.xmlsoap.org/wsdl/" name="notify_subscriber_consent_service" targetNamespace="http://www.csapi.org/wsdl/subscriberconsnet/data/v1_0/service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://www.csapi.org/wsdl/subscriberconsnet/data/v1_0/interface" location="notifySubscriberConsentResult_interface_1_0.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="SubscriberConsentBinding" type="interface:SubscriberConsent">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="notifySubscriberConsentResult">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SubscriberConsentService">
+    <wsdl:port name="subscriberConsent" binding="tns:SubscriberConsentBinding">
+      <soap:address location="http://localhost:9080/subscriberConsentService/services/subscriberConsent" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
